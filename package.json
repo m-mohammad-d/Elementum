@@ -1,0 +1,23 @@
+{
+  "name": "html",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "mfrachet <marvin.frachet@zenika.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "rmdir /s /q build && parcel build index.js -d build/",
+    "start": "rmdir /s /q .cache && rmdir /s /q dist && parcel serve index.html",
+    "docs": "vuepress dev book",
+    "build:docs": "vuepress build book && rmdir /s /q ./docs && move ./book/.vuepress/dist ./docs"
+  },
+  "dependencies": {
+    "parcel-bundler": "^1.12.4",
+    "snabbdom": "^0.7.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "vuepress": "^0.13.1"
+  }
+}
