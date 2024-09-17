@@ -1,9 +1,13 @@
 import * as snabbdom from "snabbdom";
-const patch = snabbdom.init([
-  require("snabbdom/modules/eventlisteners").default,
-]);
+import eventlisteners from "snabbdom/modules/eventlisteners";
+
+const patch = snabbdom.init([eventlisteners]);
 
 export const init = (selector, component) => {
   const app = document.querySelector(selector);
-  patch(app, component.template);
+  if (app) {
+    patch(app, component.template);
+  } else {
+    console.error(`Element with selector "${selector}" not found.`);
+  }
 };

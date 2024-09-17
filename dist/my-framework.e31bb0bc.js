@@ -751,12 +751,18 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.init = void 0;
 var snabbdom = _interopRequireWildcard(require("snabbdom"));
+var _eventlisteners = _interopRequireDefault(require("snabbdom/modules/eventlisteners"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
-var patch = snabbdom.init([require("snabbdom/modules/eventlisteners").default]);
+var patch = snabbdom.init([_eventlisteners.default]);
 var init = exports.init = function init(selector, component) {
   var app = document.querySelector(selector);
-  patch(app, component.template);
+  if (app) {
+    patch(app, component.template);
+  } else {
+    console.error("Element with selector \"".concat(selector, "\" not found."));
+  }
 };
 },{"snabbdom":"node_modules/snabbdom/es/snabbdom.js","snabbdom/modules/eventlisteners":"node_modules/snabbdom/modules/eventlisteners.js"}],"node_modules/snabbdom/vnode.js":[function(require,module,exports) {
 "use strict";
@@ -853,16 +859,11 @@ function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" 
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 var initialState = {
   template: "",
-  on: {} // This initial state property will help us manage event handlers in template literals
+  on: {} // برای مدیریت رویدادها
 };
 var createReducer = function createReducer(args) {
   return function (acc, currentString, index) {
     var currentArg = args[index];
-
-    /**
-     * Here, we define the behavior of an event node and this
-     * is where the type is important :D
-     */
     if (currentArg && currentArg.type === "event") {
       return _objectSpread(_objectSpread({}, acc), {}, {
         on: {
@@ -887,7 +888,7 @@ var createElement = function createElement(tagName) {
       type: "element",
       template: (0, _h.h)(tagName, {
         on: on
-      }, template) // the second argument concerns attributes, properties and events
+      }, template)
     };
   };
 };
@@ -920,7 +921,7 @@ function _taggedTemplateLiteral(e, t) { return t || (t = e.slice(0)), Object.fre
 var User = exports.User = function User(_ref) {
   var firstName = _ref.firstName,
     lastName = _ref.lastName;
-  return (0, _element.div)(_templateObject || (_templateObject = _taggedTemplateLiteral(["", " Hello ", " ", ""])), (0, _event.onClick)(function () {
+  return (0, _element.p)(_templateObject || (_templateObject = _taggedTemplateLiteral(["", " hello ", " ", ""])), (0, _event.onClick)(function () {
     return alert(firstName);
   }), firstName, lastName);
 };
