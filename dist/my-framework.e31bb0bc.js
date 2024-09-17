@@ -849,7 +849,8 @@ exports.default = h;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.p = exports.div = void 0;
+exports.thead = exports.th = exports.tfoot = exports.textarea = exports.td = exports.tbody = exports.table = exports.sup = exports.summary = exports.sub = exports.style = exports.strong = exports.span = exports.source = exports.small = exports.select = exports.section = exports.script = exports.samp = exports.s = exports.ruby = exports.rt = exports.rp = exports.q = exports.progress = exports.pre = exports.picture = exports.param = exports.p = exports.output = exports.option = exports.optgroup = exports.ol = exports.object = exports.noscript = exports.nav = exports.meter = exports.meta = exports.mark = exports.map = exports.main = exports.link = exports.li = exports.legend = exports.label = exports.kbd = exports.ins = exports.input = exports.img = exports.iframe = exports.i = exports.html = exports.hr = exports.hgroup = exports.header = exports.head = exports.h6 = exports.h5 = exports.h4 = exports.h3 = exports.h2 = exports.h1 = exports.form = exports.footer = exports.figure = exports.figcaption = exports.fieldset = exports.embed = exports.em = exports.dt = exports.dl = exports.div = exports.dialog = exports.dfn = exports.details = exports.del = exports.dd = exports.datalist = exports.data = exports.colgroup = exports.col = exports.code = exports.cite = exports.caption = exports.canvas = exports.button = exports.br = exports.body = exports.blockquote = exports.bdo = exports.bdi = exports.base = exports.b = exports.audio = exports.aside = exports.article = exports.area = exports.address = exports.abbr = exports.a = void 0;
+exports.wbr = exports.video = exports.ul = exports.u = exports.tr = exports.title = exports.time = void 0;
 var _h = require("snabbdom/h");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -859,7 +860,7 @@ function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" 
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 var initialState = {
   template: "",
-  on: {} // برای مدیریت رویدادها
+  on: {}
 };
 var createReducer = function createReducer(args) {
   return function (acc, currentString, index) {
@@ -892,8 +893,113 @@ var createElement = function createElement(tagName) {
     };
   };
 };
+var a = exports.a = createElement("a");
+var abbr = exports.abbr = createElement("abbr");
+var address = exports.address = createElement("address");
+var area = exports.area = createElement("area");
+var article = exports.article = createElement("article");
+var aside = exports.aside = createElement("aside");
+var audio = exports.audio = createElement("audio");
+var b = exports.b = createElement("b");
+var base = exports.base = createElement("base");
+var bdi = exports.bdi = createElement("bdi");
+var bdo = exports.bdo = createElement("bdo");
+var blockquote = exports.blockquote = createElement("blockquote");
+var body = exports.body = createElement("body");
+var br = exports.br = createElement("br");
+var button = exports.button = createElement("button");
+var canvas = exports.canvas = createElement("canvas");
+var caption = exports.caption = createElement("caption");
+var cite = exports.cite = createElement("cite");
+var code = exports.code = createElement("code");
+var col = exports.col = createElement("col");
+var colgroup = exports.colgroup = createElement("colgroup");
+var data = exports.data = createElement("data");
+var datalist = exports.datalist = createElement("datalist");
+var dd = exports.dd = createElement("dd");
+var del = exports.del = createElement("del");
+var details = exports.details = createElement("details");
+var dfn = exports.dfn = createElement("dfn");
+var dialog = exports.dialog = createElement("dialog");
 var div = exports.div = createElement("div");
+var dl = exports.dl = createElement("dl");
+var dt = exports.dt = createElement("dt");
+var em = exports.em = createElement("em");
+var embed = exports.embed = createElement("embed");
+var fieldset = exports.fieldset = createElement("fieldset");
+var figcaption = exports.figcaption = createElement("figcaption");
+var figure = exports.figure = createElement("figure");
+var footer = exports.footer = createElement("footer");
+var form = exports.form = createElement("form");
+var h1 = exports.h1 = createElement("h1");
+var h2 = exports.h2 = createElement("h2");
+var h3 = exports.h3 = createElement("h3");
+var h4 = exports.h4 = createElement("h4");
+var h5 = exports.h5 = createElement("h5");
+var h6 = exports.h6 = createElement("h6");
+var head = exports.head = createElement("head");
+var header = exports.header = createElement("header");
+var hgroup = exports.hgroup = createElement("hgroup");
+var hr = exports.hr = createElement("hr");
+var html = exports.html = createElement("html");
+var i = exports.i = createElement("i");
+var iframe = exports.iframe = createElement("iframe");
+var img = exports.img = createElement("img");
+var input = exports.input = createElement("input");
+var ins = exports.ins = createElement("ins");
+var kbd = exports.kbd = createElement("kbd");
+var label = exports.label = createElement("label");
+var legend = exports.legend = createElement("legend");
+var li = exports.li = createElement("li");
+var link = exports.link = createElement("link");
+var main = exports.main = createElement("main");
+var map = exports.map = createElement("map");
+var mark = exports.mark = createElement("mark");
+var meta = exports.meta = createElement("meta");
+var meter = exports.meter = createElement("meter");
+var nav = exports.nav = createElement("nav");
+var noscript = exports.noscript = createElement("noscript");
+var object = exports.object = createElement("object");
+var ol = exports.ol = createElement("ol");
+var optgroup = exports.optgroup = createElement("optgroup");
+var option = exports.option = createElement("option");
+var output = exports.output = createElement("output");
 var p = exports.p = createElement("p");
+var param = exports.param = createElement("param");
+var picture = exports.picture = createElement("picture");
+var pre = exports.pre = createElement("pre");
+var progress = exports.progress = createElement("progress");
+var q = exports.q = createElement("q");
+var rp = exports.rp = createElement("rp");
+var rt = exports.rt = createElement("rt");
+var ruby = exports.ruby = createElement("ruby");
+var s = exports.s = createElement("s");
+var samp = exports.samp = createElement("samp");
+var script = exports.script = createElement("script");
+var section = exports.section = createElement("section");
+var select = exports.select = createElement("select");
+var small = exports.small = createElement("small");
+var source = exports.source = createElement("source");
+var span = exports.span = createElement("span");
+var strong = exports.strong = createElement("strong");
+var style = exports.style = createElement("style");
+var sub = exports.sub = createElement("sub");
+var summary = exports.summary = createElement("summary");
+var sup = exports.sup = createElement("sup");
+var table = exports.table = createElement("table");
+var tbody = exports.tbody = createElement("tbody");
+var td = exports.td = createElement("td");
+var textarea = exports.textarea = createElement("textarea");
+var tfoot = exports.tfoot = createElement("tfoot");
+var th = exports.th = createElement("th");
+var thead = exports.thead = createElement("thead");
+var time = exports.time = createElement("time");
+var title = exports.title = createElement("title");
+var tr = exports.tr = createElement("tr");
+var u = exports.u = createElement("u");
+var ul = exports.ul = createElement("ul");
+var video = exports.video = createElement("video");
+var wbr = exports.wbr = createElement("wbr");
 },{"snabbdom/h":"node_modules/snabbdom/h.js"}],"framework/event.js":[function(require,module,exports) {
 "use strict";
 
@@ -961,7 +1067,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "3115" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "7326" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
